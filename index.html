@@ -6,7 +6,7 @@
 <title>Arief Hidayatullah — Operations Portfolio</title>
 <meta name="description" content="Arief Hidayatullah — Operations Supervisor at Boulder Planet Indonesia. SOPs, workforce planning, events and automation systems, with evidence.">
 <meta property="og:title" content="Arief Hidayatullah — Operations Portfolio">
-<meta property="og:description" content="Operations Supervisor at Boulder Planet Indonesia. 10 systems shipped, 4 competitions, 96.5% of logged tasks closed.">
+<meta property="og:description" content="Operations Supervisor at Boulder Planet Indonesia. 10 systems shipped and 5 competitions delivered.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ariefmorfhi.github.io/portfolio/">
 <meta property="og:image" content="https://ariefmorfhi.github.io/portfolio/og-image.jpg">
@@ -287,7 +287,7 @@ h2.big em,.hl{font-style:normal;color:var(--hl-text);background:linear-gradient(
 @media (min-width:901px){.rail > .wk.lead1{grid-column:span 2}.rail > .wk.lead1 .wt{font-size:34px;max-width:18ch}}
 
 /* ---------- EVENTS: timeline ---------- */
-.tl{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding-top:34px}
+.tl{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;padding-top:34px}
 .tl::before{content:"";position:absolute;left:10px;right:10px;top:9px;border-top:2px dashed var(--line-2)}
 .te{position:relative;display:flex;flex-direction:column;gap:8px;min-width:0}
 .te::before{content:"";position:absolute;left:2px;top:-33px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--text)}
@@ -698,6 +698,34 @@ dialog .scroll{max-height:calc(100dvh - 40px);overflow:auto;border-radius:var(--
   .certs{grid-template-columns:repeat(4,1fr)}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#666;word-break:break-all}
 }
+
+/* partners card */
+.partners{padding:24px;display:flex;flex-direction:column;gap:14px;border-radius:32px 32px 32px 8px}
+.partners .h b{font-weight:500;font-size:16px}
+.partners .pl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.partners .pl li{display:flex;align-items:center;gap:10px;background:color-mix(in srgb,#fff 55%,transparent);border-radius:16px;padding:12px;font-size:14px;line-height:1.2;min-width:0}
+.partners .mono{width:34px;height:34px;flex:none;border-radius:11px;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;font-size:12.5px;font-weight:500;letter-spacing:.02em}
+.partners .pl{flex:1 1 auto;grid-auto-rows:1fr}
+.te.up .r b{color:var(--on-ink)}
+.partners .pn{margin:6px 0 0;font-size:12.5px;line-height:1.4;color:rgba(2,16,36,.7)}
+/* highlighted build row */
+.rows li.hi button{background:color-mix(in srgb,var(--sun) 22%,transparent);border-radius:14px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sun) 55%,transparent)}
+/* method strip under the project grid */
+#howbar{margin-top:22px}
+/* phone: role line as a full-width pill above the hero */
+.avail.m{display:none}
+@media (max-width:640px){
+  .hero-copy > .avail{display:none}
+  .avail.m{display:inline-flex;grid-column:1/-1;justify-self:start;font-size:11px;padding:6px 12px 6px 10px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface-2);white-space:nowrap;margin-top:6px;max-width:100%}
+  .partners{padding:12px;gap:8px;border-radius:20px 20px 20px 6px}
+  .partners .h b{font-size:12.5px}
+  .partners .pl{grid-template-columns:1fr;gap:5px}
+  .partners .pl li{padding:6px 7px;gap:7px;font-size:10.5px;border-radius:10px}
+  .partners .mono{width:22px;height:22px;border-radius:7px;font-size:9px}
+  .partners .pn{font-size:9.5px}
+  #howbar{margin-top:12px}
+}
+@media (min-width:641px) and (max-width:1000px){ .tl > .te:last-child{grid-column:1/-1} }
 </style>
 </head>
 <body>
@@ -757,10 +785,9 @@ dialog .scroll{max-height:calc(100dvh - 40px);overflow:auto;border-radius:var(--
 
     <section id="work">
       <div class="sec-head" id="work-head"></div>
-      <div class="howbar" id="howbar"></div>
-      <div class="wsplit"><span class="k" id="work-split"></span><span class="ln"></span></div>
       <div class="filters" id="filters" role="toolbar" aria-label="Filter projects"></div>
       <div class="rail" id="work-grid"></div>
+      <div class="howbar" id="howbar"></div>
     </section>
 
     <section id="events">
@@ -884,16 +911,15 @@ var C = {
     linkedin: "ariefmorfhi",                       // just the username, not the full link
     whatsapp: "",                                  // e.g. "6281234567890" — leave "" to hide
     cv:       "",                                  // e.g. "cv.pdf" after you upload it — "" hides the button
-    updated:  {en:"Updated October 2026", id:"Diperbarui Oktober 2026"},
-    footnote: {en:"Task figures from my own work tracker as of 8 Sep 2026. Details on request.",
-               id:"Angka tugas dari tracker kerja saya per 8 Sep 2026. Detail atas permintaan."}
+    updated:  {en:"Updated November 2026", id:"Diperbarui November 2026"},
+    footnote: {en:"", id:""}                       // optional small line in the footer — "" hides it
   },
 
   /* The three floating chips on your photo. Max 3. */
   chips: [
     {big:"10",       text:{en:"systems shipped", id:"sistem dibangun"}},
-    {big:"96.5%",    text:{en:"tasks closed",    id:"tugas selesai"}},
-    {big:"Event IC", text:{en:"· Space Games",   id:"· Space Games"}}
+    {big:"5",        text:{en:"competitions delivered", id:"kompetisi terlaksana"}},
+    {big:"Event IC", text:{en:"· BoulderFest 2026",   id:"· BoulderFest 2026"}}
   ],
 
   /* Buttons under your intro */
@@ -907,7 +933,7 @@ var C = {
   stats: [
     {n:"10", label:{en:"Systems & frameworks shipped", id:"Sistem & kerangka dibangun"}},
     {n:"5",  label:{en:"Operations domains owned",     id:"Domain operasional dipegang"}},
-    {n:"4",  label:{en:"Competitions delivered",       id:"Kompetisi terlaksana"}},
+    {n:"5",  label:{en:"Competitions delivered",       id:"Kompetisi terlaksana"}},
     {n:"13", label:{en:"Countries hosted (SEA League)", id:"Negara peserta (SEA League)"}}
   ],
 
@@ -925,14 +951,13 @@ var C = {
 
   /* ---------- 3. AT A GLANCE (3 cards) ---------------------------------- */
   glance: {
-    gauge: {
-      title:{en:"Task closure", id:"Penyelesaian tugas"},
-      asOf: {en:"as of 8 Sep 2026", id:"per 8 Sep 2026"},
-      percent: 96.5,                       // also drives the dial
-      closed: 549, open: 20, logged: 569,
-      lClosed:{en:"closed", id:"selesai"}, lOpen:{en:"open", id:"terbuka"},
-      lLogged:{en:"569 logged", id:"569 tercatat"},
-      lUnder: {en:"tasks closed", id:"tugas selesai"}
+    /* Partners card (replaces the old task-closure gauge).
+       Add or remove names freely — the card re-flows itself. */
+    partners: {
+      title:{en:"Partners I've worked with", id:"Mitra yang pernah bekerja sama"},
+      note: {en:"Organizations I've collaborated with through my role at Boulder Planet Indonesia.",
+             id:"Organisasi yang pernah bekerja sama dengan saya melalui peran di Boulder Planet Indonesia."},
+      items:["Siloam Hospitals","Eka Hospital","Central Park Mall","KiCA Indonesia"]
     },
     reach: {
       total:"455",
@@ -942,8 +967,7 @@ var C = {
       bars:[
         {name:"BoulderFest 2025",     role:{en:"· Co-Event IC",  id:"· Co-Event IC"},  value:"155", pct:84,  style:""},
         {name:"SEA Boulder League",   role:{en:"· Volunteer IC", id:"· Volunteer IC"}, value:"185", pct:100, style:""},
-        {name:"Space Games 2026",     role:{en:"· Event IC",     id:"· Event IC"},     value:"115", pct:62,  style:"hot"},
-        {name:"BoulderFest 2026",     role:{en:"· Calendar PIC", id:"· Calendar PIC"}, value:{en:"3–4 Oct", id:"3–4 Okt"}, pct:0, style:"soon"}
+        {name:"Space Games 2026",     role:{en:"· Event IC",     id:"· Event IC"},     value:"115", pct:62,  style:"hot"}
       ]
     },
     builds: {
@@ -958,9 +982,10 @@ var C = {
       ],
       /* "opens" must match a project number in the projects list below */
       rows:[
-        {opens:4, title:{en:"Next-Day Manpower Alert", id:"Notifikasi Manpower H-1"}, sub:{en:"Live · daily 10:00 WIB", id:"Aktif · tiap 10:00 WIB"}, live:true},
-        {opens:5, title:{en:"Mindbody Offline Backup", id:"Backup Offline Mindbody"}, sub:{en:"In daily use", id:"Dipakai harian"}, live:true},
-        {opens:2, title:{en:"AI Knowledge Base & Chatbot", id:"Knowledge Base AI & Chatbot"}, sub:{en:"Stress testing · Sep 2026", id:"Stress test · Sep 2026"}, live:false}
+        /* hi:true = highlighted row */
+        {opens:2, hi:true, title:{en:"AI Knowledge Base & Chatbot", id:"Knowledge Base AI & Chatbot"}, sub:{en:"Customer-facing AI · Mekari Qontak", id:"AI untuk pelanggan · Mekari Qontak"}, live:true},
+        {opens:5, title:{en:"Mindbody Offline Backup", id:"Backup Offline Mindbody"}, sub:{en:"In daily use · Cloudflare", id:"Dipakai harian · Cloudflare"}, live:true},
+        {opens:4, title:{en:"Automated Reminders → Google Chat", id:"Otomasi Reminder → Google Chat"}, sub:{en:"Live · manpower, scheduling, customer service", id:"Aktif · manpower, jadwal, customer service"}, live:true}
       ]
     }
   },
@@ -983,7 +1008,7 @@ var C = {
       {icon:"users", look:"sun",
        t:{en:"Workforce & coordination", id:"Tenaga kerja & koordinasi"},
        d:{en:"Manpower, attendance and requests in one plan.", id:"Manpower, kehadiran, dan permintaan dalam satu rencana."},
-       proof:{en:"<b>Gaps flagged a day early</b>, 10:00 daily", id:"<b>Kekurangan terdeteksi H-1</b>, tiap 10:00"}},
+       proof:{en:"<b>Daily reminders</b> in Google Chat · manpower & schedules", id:"<b>Reminder harian</b> di Google Chat · manpower & jadwal"}},
 
       {icon:"shield", look:"",
        t:{en:"Customer & incidents", id:"Pelanggan & insiden"},
@@ -991,14 +1016,14 @@ var C = {
        proof:{en:"<b>Report → closure</b>, one owner, auditable", id:"<b>Lapor → selesai</b>, satu PIC, bisa diaudit"}},
 
       {icon:"flag", look:"sun",
-       t:{en:"Events & community", id:"Event & komunitas"},
-       d:{en:"Concept to closeout, then a review for the next one.", id:"Dari konsep sampai closing, lalu evaluasi untuk berikutnya."},
-       proof:{en:"<b>4 competitions</b> · 455 competitors", id:"<b>4 kompetisi</b> · 455 peserta"}},
+       t:{en:"Events & partnerships", id:"Event & kemitraan"},
+       d:{en:"Concept to closeout — with partners, venue and vendors — then a review for the next one.", id:"Dari konsep sampai closing — bersama mitra, venue, dan vendor — lalu evaluasi untuk berikutnya."},
+       proof:{en:"<b>5 competitions</b> · 4 partner organizations", id:"<b>5 kompetisi</b> · 4 organisasi mitra"}},
 
       {icon:"key", look:"",
        t:{en:"Facility readiness", id:"Kesiapan fasilitas"},
        d:{en:"Every shift opens ready — desk, rental, access, utilities.", id:"Setiap shift dibuka siap — front desk, rental, akses, utilitas."},
-       proof:{en:"<b>96.5%</b> of logged tasks closed", id:"<b>96,5%</b> tugas tercatat selesai"}}
+       proof:{en:"<b>Offline backup</b> keeps the desk selling in outages", id:"<b>Backup offline</b> menjaga front desk tetap jualan saat sistem down"}}
     ]
   },
 
@@ -1020,7 +1045,7 @@ var C = {
       {en:"Train",     id:"Latih"},
       {en:"Measure",   id:"Ukur"}
     ],
-    highlightStep: 4,
+    highlightStep: 0,                      /* 0 = no step highlighted */
     splitLabel:{en:"The ten systems", id:"Sepuluh sistemnya"},
     filterAll: {en:"All", id:"Semua"},
     filters:[
@@ -1060,27 +1085,27 @@ var C = {
        tools:["Mekari Qontak","Knowledge base","AI escalation rules"]},
 
       {cat:"ppl", look:"sun",
-       tag:{en:"Event IC", id:"Event IC"},
-       title:{en:"Space Games 2026", id:"Space Games 2026"},
-       result:{en:"<b>115</b> participants · first as IC", id:"<b>115</b> peserta · pertama sebagai IC"},
-       status:{en:"Completed · 18 Apr 2026", id:"Selesai · 18 Apr 2026"},
-       lead_:{en:"First event as Event IC & Timekeeper — a beginner-friendly top-rope competition.", id:"Event pertama sebagai Event IC & Timekeeper — kompetisi top-rope yang ramah pemula."},
-       problem:{en:"Make a first competition feel accessible and credible — across flow, staff, volunteers, setting, first aid and comms.", id:"Membuat kompetisi pertama terasa mudah diikuti dan kredibel — mulai dari alur, staf, relawan, setting, P3K, hingga komunikasi."},
-       built:{en:["Proposal, schedule, checklist & participant guide","Volunteer brief, first-aid readiness & signage","Live calls with MC, Chief Judge & Chief Setter","After-action review + survey analysis"],
-              id:["Proposal, jadwal, checklist & panduan peserta","Brief relawan, kesiapan P3K & signage","Keputusan live bersama MC, Chief Judge & Chief Setter","After-action review + analisis survei"]},
-       res:{en:"115 participants. Ran substantially on time — a ~10-min delay before the final, but the final finished early.", id:"115 peserta. Berjalan sesuai jadwal — ada jeda teknis ~10 menit sebelum final, namun final selesai lebih cepat."},
-       tools:["Event planning","Volunteer management","Surveys","After-action review"]},
+       tag:{en:"Events", id:"Event"},
+       title:{en:"Competitions & Events", id:"Kompetisi & Event"},
+       result:{en:"<b>5 competitions</b> · 3 as Event IC", id:"<b>5 kompetisi</b> · 3 sebagai Event IC"},
+       status:{en:"Oct 2025 → Nov 2026", id:"Okt 2025 → Nov 2026"},
+       lead_:{en:"From operations support to Event IC — community, national and international competitions.", id:"Dari dukungan operasional sampai Event IC — kompetisi komunitas, nasional, dan internasional."},
+       problem:{en:"Every event needs flow, staff, volunteers, permits, first aid, partners and communication to come together on the day.", id:"Setiap event butuh alur, staf, relawan, perizinan, P3K, mitra, dan komunikasi yang menyatu di hari-H."},
+       built:{en:["Event IC: Space Games 2026 · BoulderFest 2026 · BP Benchmark 8","Co-Event IC BoulderFest 2025 · Volunteer IC SEA Boulder League R1","Proposals, schedules, checklists, volunteer briefs & participant guides","Permits & mall access, ambulance & paramedics, event chatbot FAQ, part-time manpower"],
+              id:["Event IC: Space Games 2026 · BoulderFest 2026 · BP Benchmark 8","Co-Event IC BoulderFest 2025 · Volunteer IC SEA Boulder League R1","Proposal, jadwal, checklist, brief relawan & panduan peserta","Perizinan & akses mall, ambulans & paramedis, FAQ chatbot event, manpower part-time"]},
+       res:{en:"155 participants at BoulderFest 2025, 185 athletes from 13 countries at SEA Boulder League R1, 115 at Space Games 2026.", id:"155 peserta di BoulderFest 2025, 185 atlet dari 13 negara di SEA Boulder League R1, 115 peserta di Space Games 2026."},
+       tools:["Event planning","Volunteer management","Partner coordination","Surveys"]},
 
       {cat:"auto", look:"",
        tag:{en:"Automation", id:"Otomasi"},
-       title:{en:"Next-Day Manpower Alert", id:"Notifikasi Manpower H-1"},
-       result:{en:"<b>Gaps flagged</b> a day early", id:"<b>Kekurangan terdeteksi</b> H-1"},
-       status:{en:"Live · runs daily ~10:00 WIB", id:"Aktif · berjalan tiap hari ~10:00 WIB"},
-       lead_:{en:"One daily message that says whether tomorrow is covered.", id:"Satu pesan harian yang menjawab: apakah besok aman secara manpower?"},
-       problem:{en:"Schedules across full-timers, part-timers, coaching, events and meetings made coverage gaps easy to miss.", id:"Jadwal full-timer, part-timer, coaching, event, dan meeting membuat kekurangan staf mudah terlewat."},
-       built:{en:["One next-day view → Google Chat alert","Minimums: 2 to open, 3 to close, 30-min slots","Merges schedule, coaching, holiday & event sources","Webhook secured in Script Properties"],
-              id:["Satu tampilan H-1 → notifikasi Google Chat","Minimum: 2 orang buka, 3 orang tutup, slot 30 menit","Menggabungkan jadwal, coaching, libur & event","Webhook disimpan aman di Script Properties"]},
-       res:{en:"Staffing gaps surface a day early — fixed before they hit a shift.", id:"Kekurangan staf terlihat sehari lebih awal — diperbaiki sebelum mengganggu shift."},
+       title:{en:"Automated Reminder Hub", id:"Pusat Reminder Otomatis"},
+       result:{en:"<b>One channel</b> for daily reminders", id:"<b>Satu kanal</b> untuk reminder harian"},
+       status:{en:"Live · runs daily", id:"Aktif · berjalan tiap hari"},
+       lead_:{en:"Reminders from several platforms, delivered into one Google Chat space.", id:"Reminder dari beberapa platform, dikirim ke satu ruang Google Chat."},
+       problem:{en:"Manpower, scheduling and customer-service follow-ups lived on different platforms, so things were easy to miss.", id:"Manpower, jadwal, dan follow-up customer service tersebar di platform berbeda, sehingga mudah terlewat."},
+       built:{en:["Automated reminders: manpower, scheduling, customer service","Several platforms connected to Google Chat as the central channel","Next-day manpower check: 2 to open, 3 to close, 30-min slots","Webhooks kept secure in Script Properties"],
+              id:["Reminder otomatis: manpower, jadwal, customer service","Beberapa platform terhubung ke Google Chat sebagai kanal pusat","Cek manpower H-1: 2 orang buka, 3 orang tutup, slot 30 menit","Webhook disimpan aman di Script Properties"]},
+       res:{en:"The team has one central place for what needs attention, instead of checking each platform.", id:"Tim punya satu tempat pusat untuk hal yang perlu ditindaklanjuti, tanpa cek tiap platform."},
        tools:["Apps Script","Google Sheets","Google Chat"]},
 
       {cat:"sys", look:"",
@@ -1093,7 +1118,7 @@ var C = {
        built:{en:["Offline HTML app: Buy, Existing, Sharing Pass & Private Coaching","Multi-item batches under one sequential reference","Validation, daily records & CSV export","Staff-tested; supported reconciliation after recovery"],
               id:["Aplikasi HTML offline: Buy, Existing, Sharing Pass & Private Coaching","Transaksi multi-item dalam satu nomor referensi berurutan","Validasi, rekap harian & ekspor CSV","Diuji staf; membantu rekonsiliasi setelah sistem pulih"]},
        res:{en:"Revenue kept flowing during outages, with a clean audit trail for re-entry.", id:"Pendapatan tetap tercatat saat gangguan, dengan jejak audit yang rapi untuk input ulang."},
-       tools:["HTML","Local storage","CSV"]},
+       tools:["HTML","Cloudflare","Local storage","CSV"]},
 
       {cat:"ppl", look:"ink",
        tag:{en:"People", id:"Tim"},
@@ -1162,8 +1187,8 @@ var C = {
     no:"02",
     kicker:{en:"Events", id:"Event"},
     title: {en:"From support <em>to Event IC</em>", id:"Dari pendukung <em>ke Event IC</em>"},
-    intro: {en:"Four signature competitions — each with more ownership than the last.",
-            id:"Empat kompetisi unggulan — setiap event dengan tanggung jawab lebih besar."},
+    intro: {en:"Five competitions — each with more ownership than the last.",
+            id:"Lima kompetisi — setiap event dengan tanggung jawab lebih besar."},
     /* look: "" plain · "k" yellow highlight box · "up" black upcoming box */
     items:[
       {look:"",
@@ -1179,7 +1204,7 @@ var C = {
        role:{en:"<b>Volunteer IC</b> · organizing committee · ran to schedule", id:"<b>Volunteer IC</b> · panitia · sesuai jadwal"},
        nums:[{n:"185", label:{en:"athletes", id:"atlet"}},{n:"13", label:{en:"countries", id:"negara"}}]},
 
-      {look:"k",
+      {look:"",
        date:{en:"18 Apr 2026", id:"18 Apr 2026"},
        badge:{en:"First as Event IC", id:"Pertama sebagai Event IC"}, badgeLook:"ink",
        name:"Space Games 2026",
@@ -1188,21 +1213,23 @@ var C = {
 
       {look:"up",
        date:{en:"03–04 Oct 2026", id:"03–04 Okt 2026"},
-       badge:{en:"Upcoming", id:"Segera"}, badgeLook:"sun",
        name:"BoulderFest 2026",
-       role:{en:"Calendar PIC · what I own", id:"Calendar PIC · yang saya pegang"},
+       role:{en:"<b>Event IC</b> · what I owned", id:"<b>Event IC</b> · yang saya pegang"},
        list:{en:["Permits & mall access","Ambulance & paramedics","Tenant sponsorship outreach","Event chatbot FAQ","Part-time manpower plan"],
-             id:["Perizinan & akses mall","Ambulans & paramedis","Penjajakan sponsor tenant","FAQ chatbot event","Rencana manpower part-time"]}}
+             id:["Perizinan & akses mall","Ambulans & paramedis","Penjajakan sponsor tenant","FAQ chatbot event","Rencana manpower part-time"]}},
+
+      {look:"k",
+       date:{en:"21–22 Nov 2026", id:"21–22 Nov 2026"},
+       badge:{en:"Latest", id:"Terbaru"}, badgeLook:"ink",
+       name:"BP Benchmark 8",
+       role:{en:"<b>Event IC</b>", id:"<b>Event IC</b>"}}
     ],
     alsoLabel:{en:"Also supported", id:"Juga mendukung"},
     also:[
       {en:"Merdeka Day 2026", id:"Merdeka Day 2026"},
       {en:"Year-End Bazaar 2025", id:"Year-End Bazaar 2025"},
       {en:"BP Benchmark series", id:"Seri BP Benchmark"},
-      {en:"BP High-5 Celebration", id:"BP High-5 Celebration"},
-      {en:"Menstrucare activation", id:"Aktivasi Menstrucare"},
-      {en:"Corporate groups", id:"Grup korporat"},
-      {en:"On Terra & Uniqlo activations", id:"Aktivasi On Terra & Uniqlo"}
+      {en:"BP High-5 Celebration", id:"BP High-5 Celebration"}
     ]
   },
 
@@ -1215,20 +1242,20 @@ var C = {
     intro: {en:"Student leadership, national events and community work — tap a photo to view it.",
             id:"Organisasi kampus, event nasional, dan kerja komunitas — ketuk foto untuk melihat."},
     photos:[
-      {thumb:"p7",  full:"p7f",  year:"2023", cap:{en:"KDMI 2023 · organizing team", id:"KDMI 2023 · tim panitia"}},
-      {thumb:"p14", full:"p14f", year:"2024", cap:{en:"Climbing community", id:"Komunitas panjat"}},
-      {thumb:"p8",  full:"p8f",  year:"2023", cap:{en:"Benchmarking 2023 · on the podium", id:"Benchmarking 2023 · di podium"}},
-      {thumb:"p6",  full:"p6f",  year:"2023", cap:{en:"KDMI 2023 · debate stage", id:"KDMI 2023 · panggung debat"}},
-      {thumb:"p11", full:"p11f", year:"2023", cap:{en:"Outdoor forum", id:"Forum luar ruang"}},
-      {thumb:"p13", full:"p13f", year:"",     cap:{en:"With the team", id:"Bersama tim"}},
-      {thumb:"p2",  full:"p2f",  year:"2023", cap:{en:"National Leadership Training 2", id:"National Leadership Training 2"}},
-      {thumb:"p4",  full:"p4f",  year:"2023", cap:{en:"MPR RI public socialization forum", id:"Sosialisasi MPR RI"}},
-      {thumb:"p1",  full:"p1f",  year:"2022", cap:{en:"Campus organization", id:"Organisasi kampus"}},
-      {thumb:"p3",  full:"p3f",  year:"2023", cap:{en:"Speaking session", id:"Sesi berbicara"}},
-      {thumb:"p5",  full:"p5f",  year:"2023", cap:{en:"Workshop", id:"Workshop"}},
-      {thumb:"p9",  full:"p9f",  year:"2023", cap:{en:"Benchmarking 2023", id:"Benchmarking 2023"}},
-      {thumb:"p10", full:"p10f", year:"2023", cap:{en:"Rapat Kerja 2023", id:"Rapat Kerja 2023"}},
-      {thumb:"p12", full:"p12f", year:"2023", cap:{en:"National Civics Seminar", id:"Seminar Nasional Kewarganegaraan"}}
+      {thumb:"p7",  full:"p7f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p14", full:"p14f", year:"2024", cap:{en:"", id:""}},
+      {thumb:"p8",  full:"p8f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p6",  full:"p6f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p11", full:"p11f", year:"2023", cap:{en:"", id:""}},
+      {thumb:"p13", full:"p13f", year:"",     cap:{en:"", id:""}},
+      {thumb:"p2",  full:"p2f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p4",  full:"p4f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p1",  full:"p1f",  year:"2022", cap:{en:"", id:""}},
+      {thumb:"p3",  full:"p3f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p5",  full:"p5f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p9",  full:"p9f",  year:"2023", cap:{en:"", id:""}},
+      {thumb:"p10", full:"p10f", year:"2023", cap:{en:"", id:""}},
+      {thumb:"p12", full:"p12f", year:"2023", cap:{en:"", id:""}}
     ]
   },
 
@@ -1326,10 +1353,10 @@ var C = {
           id:"Indonesia (asli) · Inggris (kerja profesional) — portofolio ini ditulis dalam keduanya."}}
     ],
     tools:[
-      {k:{en:"Data & automation", id:"Data & otomasi"}, v:["Google Sheets","Apps Script","Excel","HTML"]},
-      {k:{en:"Communication", id:"Komunikasi"},         v:["Slack","Google Chat","WhatsApp","Qontak"]},
-      {k:{en:"Operations", id:"Operasional"},           v:["Mindbody","Talenta","MOKA","Shopify"]},
-      {k:{en:"Docs & forms", id:"Dokumen & formulir"},  v:["Google Docs","Google Forms","Markdown"]}
+      {k:{en:"Data & automation", id:"Data & otomasi"}, v:["Google Sheets","Apps Script","Excel","n8n","HTML","GitHub","Cloudflare"]},
+      {k:{en:"Communication", id:"Komunikasi"},         v:["Mekari Qontak","Google Chat","Slack","WhatsApp","Telegram"]},
+      {k:{en:"Operations & docs", id:"Operasional & dokumen"}, v:["Mindbody","Mekari Talenta","Shopify","Google Docs","Google Forms","Microsoft Office","Canva"]},
+      {k:{en:"AI", id:"AI"},                            v:["Claude","ChatGPT","Gemini","NotebookLM"]}
     ],
     skillsLabel:{en:"Strengths", id:"Keunggulan"},
     skills:[
@@ -1449,6 +1476,7 @@ var C = {
       return '<span class="stick s' + (i + 1) + '">' + extra + '<b>' + esc(c.big) + '</b> ' + T(c.text) + '</span>';
     }).join('');
     set('hero',
+      '<div class="avail m"><span class="pulse"></span>' + T(m.role) + '</div>' +
       '<div class="hero-copy">' +
         '<div class="avail"><span class="pulse"></span>' + T(m.role) + '</div>' +
         '<h1><span>' + esc(m.first) + '</span><span class="ln2">' + esc(m.last) + '</span></h1>' +
@@ -1471,15 +1499,13 @@ var C = {
       '<div class="marq" aria-hidden="true"><div class="mq">' + tape + tape + '</div></div>');
 
     /* glance */
-    var g = C.glance.gauge, rc = C.glance.reach, bd = C.glance.builds;
-    var dash = 267, off = Math.max(0, dash * (1 - g.percent / 100));
-    var gauge =
-      '<div class="card sun gauge rv"><div class="h"><b>' + T(g.title) + '</b><span>' + T(g.asOf) + '</span></div>' +
-      '<div class="gwrap" role="img" aria-label="' + esc(g.percent + '% — ' + g.closed + ' of ' + g.logged) + '">' +
-      '<svg viewBox="0 0 200 112" aria-hidden="true"><path class="tk" d="M5 104 A95 95 0 0 1 195 104"/><path class="trk" d="M15 104 A85 85 0 0 1 185 104"/>' +
-      '<path class="val" d="M15 104 A85 85 0 0 1 185 104" style="stroke-dashoffset:' + off.toFixed(1) + '"/></svg>' +
-      '<div class="mid"><b class="num tab">' + esc(g.percent) + '%</b><span>' + T(g.lUnder) + '</span></div></div>' +
-      '<div class="foot"><span><b>' + esc(g.closed) + '</b> ' + T(g.lClosed) + '</span><span><b>' + esc(g.open) + '</b> ' + T(g.lOpen) + '</span><span>' + T(g.lLogged) + '</span></div></div>';
+    var pt = C.glance.partners, rc = C.glance.reach, bd = C.glance.builds;
+    var gauge = pt ?
+      '<div class="card sun partners rv"><div class="h"><b>' + T(pt.title) + '</b><p class="pn">' + T(pt.note) + '</p></div>' +
+      '<ul class="pl">' + pt.items.map(function(p){
+        var ini = String(p).split(/\s+/).slice(0,2).map(function(w){ return w.charAt(0); }).join('');
+        return '<li><span class="mono" aria-hidden="true">' + esc(ini) + '</span><span>' + esc(p) + '</span></li>';
+      }).join('') + '</ul></div>' : '';
 
     var reach =
       '<div class="reach rv"><div class="h"><b class="num tab">' + esc(rc.total) + '</b><span>' + T(rc.caption) + '</span></div><ul class="hb">' +
@@ -1502,7 +1528,7 @@ var C = {
       '<div class="seg" aria-hidden="true">' + bd.legend.map(function(l){ return '<i style="flex:' + l.n + ';' + fill(l.fill) + '"></i>'; }).join('') + '</div>' +
       '<div class="lg">' + bd.legend.map(function(l){ return '<span><i style="' + fill(l.fill) + '"></i>' + l.n + ' ' + T(l.label) + '</span>'; }).join('') + '</div>' +
       '<ul class="rows">' + bd.rows.map(function(r){
-        return '<li><button type="button" data-open="' + r.opens + '"><span class="sd' + (r.live ? '' : ' w') + '"></span>' +
+        return '<li' + (r.hi ? ' class="hi"' : '') + '><button type="button" data-open="' + r.opens + '"><span class="sd' + (r.live ? '' : ' w') + '"></span>' +
           '<span><b>' + T(r.title) + '</b><small>' + T(r.sub) + '</small></span>' +
           '<span class="go">' + icon('arrow') + '</span></button></li>';
       }).join('') + '</ul></div>';
@@ -1529,7 +1555,6 @@ var C = {
         return '<span class="st' + k + '"><small>' + (i + 1) + '</small>' + T(s) + '</span>' +
                (i < W.steps.length - 1 ? '<span class="ar">&#8594;</span>' : '');
       }).join('') + '</div>');
-    $('work-split').innerHTML = T(W.splitLabel);
     set('filters',
       '<button type="button" class="on" data-f="all">' + T(W.filterAll) + '<span class="cnt">' + W.items.length + '</span></button>' +
       W.filters.map(function(f){
@@ -1568,8 +1593,9 @@ var C = {
     set('jr-head', head(J));
     set('gal-rail', J.photos.map(function(p, i){
       var y = p.year ? ' <em>· ' + esc(p.year) + '</em>' : '';
-      return '<button type="button" class="ph" data-i="' + i + '"><span class="pic">' + img(p.thumb, T(p.cap)) + '</span>' +
-             '<span class="cap">' + T(p.cap) + y + '</span></button>';
+      var cp = T(p.cap);   /* captions are optional — empty = photo only */
+      return '<button type="button" class="ph" data-i="' + i + '"><span class="pic">' + img(p.thumb, cp || T({en:'Journey photo', id:'Foto perjalanan'})) + '</span>' +
+             (cp ? '<span class="cap">' + cp + y + '</span>' : '') + '</button>';
     }).join(''));
 
     /* certificates */
@@ -1625,7 +1651,7 @@ var C = {
       '<div class="cta-big">' + T(K.big) + '</div>' +
       '<div class="crow">' + cells + '</div>' +
       '<footer><span class="brand" style="font-size:14px"><i style="width:22px;height:22px;border-radius:7px"></i>' + esc(m.handle) + '</span>' +
-      '<span>' + T(m.footnote) + ' &middot; ' + T(m.updated) + '</span></footer>');
+      '<span>' + [T(m.footnote), T(m.updated)].filter(Boolean).join(' &middot; ') + '</span></footer>');
 
     if(window.__paint) window.__paint();
     wire();
@@ -1709,8 +1735,8 @@ var C = {
   function showG(i){
     var P = C.journey.photos; gi = (i + P.length) % P.length; var p = P[gi];
     var el = $('gl-img'); el.src = src(p.full || p.thumb); el.alt = T(p.cap);
-    $('gl-title').innerHTML = T(p.cap);
-    $('gl-sub').textContent = p.year || T({en:'Journey', id:'Perjalanan'});
+    $('gl-title').innerHTML = T(p.cap) || T({en:'Journey', id:'Perjalanan'});
+    $('gl-sub').textContent = p.year || '';
     $('gl-count').textContent = (gi + 1) + ' / ' + P.length;
   }
   function showCert(){
