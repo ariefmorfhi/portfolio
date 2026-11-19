@@ -715,6 +715,7 @@ dialog .scroll{max-height:calc(100dvh - 40px);overflow:auto;border-radius:var(--
 #howbar{margin-top:22px}
 /* phone: role line as a full-width pill above the hero */
 .avail.m{display:none}
+.chips-m{display:none}
 @media (max-width:640px){
   .hero-copy > .avail{display:none}
   .avail.m{display:inline-flex;grid-column:1/-1;justify-self:start;font-size:11px;padding:6px 12px 6px 10px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface-2);white-space:nowrap;margin-top:6px;max-width:100%}
@@ -739,6 +740,19 @@ dialog .scroll{max-height:calc(100dvh - 40px);overflow:auto;border-radius:var(--
 .partners.open .pl li.tog .c{display:inline}
 .partners.open .pl li.tog{grid-column:1/-1}
 @media (max-width:640px){.te .nums{gap:10px;flex-wrap:nowrap}.te .nums b.num{font-size:22px}.te .nums span{white-space:nowrap}.te ul{font-size:9.5px;gap:3px}.te li::before{width:11px;height:11px;background-size:7px}.partners .pl li.tog button{min-height:30px;border-radius:10px}}
+
+.reach{display:flex;flex-direction:column}
+.reach .rnote{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.45;color:var(--muted)}
+@media (max-width:640px){
+  /* phone: chips leave the photo and sit in one row under the hero */
+  .stage .stick{display:none!important}
+  .chips-m{display:flex;grid-column:1/-1;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:4px}
+  .chips-m .stick{position:static!important;rotate:0deg!important;animation:none!important;font-size:11px!important}
+  .glance{grid-template-columns:1fr!important}
+  .partners .pl{grid-template-columns:1fr 1fr!important}
+  .partners .pl li{font-size:12px}
+  .reach .rnote{font-size:11px;padding-top:10px;margin-top:10px}
+}
 </style>
 </head>
 <body>
@@ -975,6 +989,8 @@ var C = {
     },
     reach: {
       total:"776",
+      note:{en:"Counts from each event's after-action review. BoulderFest 2026 also drew 504 spectators — 940 gym visitors in two days.",
+            id:"Angka dari after-action review tiap event. BoulderFest 2026 juga menarik 504 penonton — 940 pengunjung gym dalam dua hari."},
       caption:{en:"competitors across<br>4 events I helped run",
                id:"peserta di 4 event<br>yang saya jalankan"},
       /* style: "" normal · "hot" yellow bar · "soon" dashed / upcoming */
@@ -1512,7 +1528,8 @@ var C = {
         '<span class="ring" aria-hidden="true"></span><span class="sunc" aria-hidden="true"></span>' +
         '<span class="clip">' + img(m.photo, T({en:'Portrait of ', id:'Foto '}) + m.first + ' ' + m.last) + '</span>' +
         chips +
-      '</div>');
+      '</div>' +
+      '<div class="chips-m">' + chips + '</div>');
 
     /* stats band */
     var tape = C.tape.map(function(t){ return '<span>' + T(t) + '</span>'; }).join('');
@@ -1542,7 +1559,7 @@ var C = {
           '<span class="l">' + esc(b.name) + ' <small>' + T(b.role) + '</small></span>' +
           '<span class="v"' + (soon ? ' style="color:var(--muted)"' : '') + '>' + T(b.value) + '</span>' +
           '<span class="t">' + (soon ? '' : '<i style="width:' + b.pct + '%"></i>') + '</span></li>';
-      }).join('') + '</ul></div>';
+      }).join('') + '</ul>' + (rc.note ? '<p class="rnote">' + T(rc.note) + '</p>' : '') + '</div>';
 
     function fill(f){
       if(f === 'sun') return 'background:var(--sun)';
